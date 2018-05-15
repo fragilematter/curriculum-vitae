@@ -1,0 +1,203 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}                    % Saving trees
+    \headheight=-10px
+    \headsep=0px
+    \marginparwidth=0px
+    \textheight=740px
+    \textwidth=460px
+    \hoffset=-23px
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tgtermes}
+\usepackage{tgbonum}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+%\sectionfont{
+%   \usefont{OT1}{phv}{b}{n}%       % bch-b-n: CharterBT-Bold font
+%   \sectionrule{0pt}{0pt}{-5pt}{3.5pt}}
+
+\sectionfont{%                      % Change font of \section command
+    \usefont{OT1}{qbk}{b}{n}%       % qbk-b-n: TeX Gyre Bonum Bold
+    \sectionrule{0pt}{0pt}{-8pt}{3.5pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}          % Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}       % Vertical space macro
+
+\definecolor{dark-grey}{gray}{0.15}
+
+% TeX Gyre Bonum bold
+\newcommand{\BonumBold}[1]{\usefont{OT1}{qbk}{b}{n} #1}
+% TeX Gyre Bonum
+\newcommand{\Bonum}[1]{\usefont{OT1}{qbk}{n}{n} #1}
+% TeX Gyre Termes
+\newcommand{\Termes}[1]{\usefont{OT1}{qtm}{m}{n} #1}
+
+\newcommand{\MyName}[1]{ % Name
+        \Huge \BonumBold{\hfill #1}
+        \par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+        \large \Termes{\hfill \textit{#1}}
+        \par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\lowercase{#1}}}
+
+\newcommand{\DeobfsAddr}[6]{{#1}{#5}{#4}{#3}{#2}{#6}}
+
+\newcommand{\PersonalEntry}[2]{
+        \noindent\hangindent=2em\hangafter=0 % Indentation
+        \parbox{\spacebox}{        % Box to align text
+        \textit{#1}}               % Entry name (address, email, etc.)
+        \hspace{2em}{\color{dark-grey}\footnotesize #2 }\par} % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+        \noindent\hangindent=2em\hangafter=0 % Indentation
+        \parbox{\spacebox}{        % Box to align text
+        \textit{#1}}               % Entry name
+        \parbox[t][2.5em]{12.5cm}{%
+          \noindent\hangindent=30px\hangafter=0{%
+          \footnotesize #2}}%      %Entry value
+        \normalsize \par}
+
+\newcommand{\EducationEntry}[4]{
+        \noindent \textbf{#1} \hfill        % Study
+        \colorbox{Black}{%
+          \makebox(100,10){%
+            \color{White}\textbf{#2}}} \par % Duration
+        \noindent \textit{#3} \par          % School
+        \noindent\hangindent=2em\hangafter=0 {%
+          \color{dark-grey}%
+          \Bonum{\footnotesize #4}}%        % Description
+        \normalsize \par}
+
+\newcommand{\WorkEntry}[4]{                 % Same as \EducationEntry
+        \noindent \textbf{#1} \hfill        % Jobname
+        \colorbox{Black}{%
+          \makebox(100,10){%
+            \color{White}\textbf{#2}}} \par % Duration
+        \noindent \textit{#3} \par          % Company
+        \noindent\hangindent=2em\hangafter=0{%
+          \color{dark-grey}%
+          \Bonum{\footnotesize #4}}%        % Description
+        \normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%   \vspace*{-2em}
+%       \includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Doru-Petru Barbu}
+\MySlogan{curriculum vitae}
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+
+%\PersonalEntry{Telephone}
+%  {+40 000 12 34 56}
+\PersonalEntry{Github}
+  {\href{https://github.com/fragilematter}{https://github.com/fragilematter}}
+\PersonalEntry{Email}
+  {\href{mailto:\DeobfsAddr{db}{.}{b}{d}{@0}{ro}}
+    {\DeobfsAddr{db}{.}{b}{d}{@0}{ro}}}
+%\PersonalEntry{OpenPGP}
+%  {\href{https://db.0db.ro/db.txt}
+%  {DEADBEEF}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+
+%\EducationEntry{MSc. Name of Education}{2010-2012}{Name of
+%  University}{Descriptive text goes here. In order to maintain a stylish look,
+%  try to fill this description with a few lines of text. Do the same for the
+%  other entries in the education section.}
+%\sepspace
+%
+\EducationEntry{BSc. Informatics}{2007 – 2010}{Spiru Haret University}
+  {Courses regarding statistical and numerical analysis, computer architecture, 
+  networking, sequential and programmable automata, software engineering and 
+  high level programming.}
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work experience}{}
+
+\WorkEntry{Software Developer}{2017-02 – present}{Bell Gateway SRL}
+ {Software development for desktop and web using the Microsoft .net platform.
+ Design and scripting of SQL databases and logic. Deployment and administration
+ of custom hardware and software solutions.
+ Administration of the hosting and server infrastructure.}
+\sepspace
+
+\WorkEntry{Software Developer}{2012-12 – 2017-02}{Gateway Software SRL}
+ {Software development for desktop and web using the Microsoft .net platform.
+ Maintaining legacy Visual Basic 6 and ASP software solutions. Specifying, 
+ creating technical documentation, quoting and planning the development of 
+ software solutions.}
+\sepspace
+
+\WorkEntry{Software Developer}{2010-12 – 2012-12}{Expert Software Company SRL}
+ {Creating and maintaining custom software solutions written in Microsoft Visual
+ FoxPro, with Microsoft SQL Server or MySQL in the backend. Interfacing with
+ industrial machinery such as vehicle scales. Hardware, software and networking
+ troubleshooting.}
+\sepspace
+
+\WorkEntry{Linux News Editor in English}{2009-07 – 2010-01}{SoftNews NET (Softpedia)}
+ {Tracking events in the IT/Linux area and writing articles, reviews and
+ tutorials on open source software. Expanding and updating a database of open
+ source software. Translation of news pieces from English to Romanian.}
+\sepspace
+
+\WorkEntry{IT Tech}{2007-09 – 2008-09}{"Gheorghe Lazăr" National College}
+ {Hardware maintenance and troubleshooting, networking, software solution
+ support. Setup of video and sound infrastructure for events.}
+
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+\SkillsEntry{Languages}{\textsc{C/C++}, \textsc{C\#/VB.net},
+  \textsc{SQL}, \textsc{Bash}, \textsc{Lua},
+  \textsc{Javascript}, HTML5, CSS3, \textsc{Java}}
+
+\SkillsEntry{Software}{Software Development, Database Design, 
+	System Administration, API Design, Security Best Practices}
+
+%%% References
+%%% ------------------------------------------------------------
+\NewPart{References}{}
+\hspace{0.6cm} \textit{Available upon request}
+\end{document}
