@@ -29,21 +29,6 @@
 \frenchspacing              % Better looking spacings after periods
 \pagestyle{empty}           % No pagenumbers/headers/footers
 
-%%% Custom sectioning (Koma classes)
-%%% ------------------------------------------------------------
-\makeatletter
-\renewcommand{\sectionlinesformat}[4]{
-    \Ifstr{#1}{section}{
-        \parbox[t]{\linewidth}{
-            \raggedsection\@hangfrom{\hskip #2#3}{#4}\par
-            \kern-.75\ht\strutbox\rule{\linewidth}{3.5pt}
-        }
-    }{
-        \@hangfrom{\hskip #2#3}{#4}
-    }
-}
-\makeatother
-
 %%% Macros
 %%% ------------------------------------------------------------
 \newlength{\spacebox}
@@ -58,6 +43,24 @@
 \newcommand{\Bonum}[1]{\usefont{OT1}{qbk}{m}{n} #1}
 % TeX Gyre Termes
 \newcommand{\Termes}[1]{\usefont{OT1}{qtm}{m}{n} #1}
+
+%%% Custom sectioning (Koma classes)
+%%% ------------------------------------------------------------
+\setkomafont{section}{\BonumBold}
+
+\makeatletter
+\renewcommand{\sectionlinesformat}[4]{
+    \Ifstr{#1}{section}{
+        \parbox[t]{\linewidth}{
+            \raggedsection\@hangfrom{\hskip #2#3}{#4}\par
+            \kern-.75\ht\strutbox\rule{\linewidth}{3.5pt}
+        }
+    }{
+        \@hangfrom{\hskip #2#3}{#4}
+    }
+}
+\makeatother
+%%% ------------------------------------------------------------
 
 \newcommand{\MyName}[1]{ % Name
   \Huge \BonumBold{\hfill #1}
