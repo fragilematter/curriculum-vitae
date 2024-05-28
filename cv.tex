@@ -30,17 +30,20 @@
 \frenchspacing              % Better looking spacings after periods
 \pagestyle{empty}           % No pagenumbers/headers/footers
 
-%%% Custom sectioning (sectsty package)
+%%% Custom sectioning (Koma classes)
 %%% ------------------------------------------------------------
-\usepackage{sectsty}
-
-%\sectionfont{
-%   \usefont{OT1}{phv}{b}{n}%       % bch-b-n: CharterBT-Bold font
-%   \sectionrule{0pt}{0pt}{-5pt}{3.5pt}}
-
-\sectionfont{%                      % Change font of \section command
-    \usefont{OT1}{qbk}{b}{n}%       % qbk-b-n: TeX Gyre Bonum Bold
-    \sectionrule{0pt}{0pt}{-8pt}{3.5pt}}
+\makeatletter
+\renewcommand{\sectionlinesformat}[4]{
+    \Ifstr{#1}{section}{
+        \parbox[t]{\linewidth}{
+            \raggedsection\@hangfrom{\hskip #2#3}{#4}\par
+            \kern-.75\ht\strutbox\rule{\linewidth}{3.5pt}
+        }
+    }{
+        \@hangfrom{\hskip #2#3}{#4}
+    }
+}
+\makeatother
 
 %%% Macros
 %%% ------------------------------------------------------------
